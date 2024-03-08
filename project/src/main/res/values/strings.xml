@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Project</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="appname_main">All Movies In One Application</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="submit">Submit</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+</resources>

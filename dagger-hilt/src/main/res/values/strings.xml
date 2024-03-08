@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Dagger-Hilt</string>
+    <string name="enter_anything">Enter anything...</string>
+    <string name="save">Save</string>
+</resources>

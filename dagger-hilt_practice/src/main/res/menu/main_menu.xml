@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/movies"
+        android:icon="@drawable/outline_movie_24"
+        android:title="@string/moives" />
+
+    <item
+        android:id="@+id/note"
+        android:title="@string/notes" />
+</menu>

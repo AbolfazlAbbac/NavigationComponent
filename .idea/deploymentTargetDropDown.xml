@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="deploymentTargetDropDown">
+    <value>
+      <entry key="app">
+        <State />
+      </entry>
+      <entry key="coroutines">
+        <State />
+      </entry>
+      <entry key="dagger-hilt">
+        <State />
+      </entry>
+      <entry key="dagger-hilt_practice">
+        <State />
+      </entry>
+      <entry key="datastore">
+        <State />
+      </entry>
+      <entry key="livedata">
+        <State />
+      </entry>
+      <entry key="project">
+        <State />
+      </entry>
+      <entry key="viewmodel">
+        <State />
+      </entry>
+    </value>
+  </component>
+</project>
