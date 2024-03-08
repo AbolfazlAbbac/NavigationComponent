@@ -1,5 +1,6 @@
 package com.example.project.di
 
+import com.example.project.api.ApiService
 import com.example.project.utils.Utils
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -16,7 +17,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class ApiService {
+class ApiModule {
 
     @Provides
     @Singleton
@@ -49,10 +50,11 @@ class ApiService {
 
     @Provides
     @Singleton
-    fun apiServiceRetrofit(client: OkHttpClient, gson: Gson, baseUrl: String): Retrofit =
+    fun apiServiceRetrofit(client: OkHttpClient, gson: Gson, baseUrl: String): ApiService =
         Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client)
             .build()
+            .create(ApiService::class.java)
 }
