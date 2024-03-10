@@ -10,4 +10,6 @@
     <string name="submit">Submit</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+
+    <string name="helperTextPassword">Your Password must be contains <b>Capital letters,lower case and numbers</b></string>
 </resources>

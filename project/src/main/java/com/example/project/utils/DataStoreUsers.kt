@@ -20,7 +20,7 @@ class DataStoreUsers @Inject constructor(@ApplicationContext val context: Contex
         private val stringPreferencesKey = stringPreferencesKey(USERS_DATA_STORE_KEY)
     }
 
-    suspend fun saveDataStore(token: String) {
+    suspend fun saveTokenDataStore(token: String) {
         context.dataStoreUsers.edit {
             it[stringPreferencesKey] = token
         }

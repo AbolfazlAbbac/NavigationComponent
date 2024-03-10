@@ -32,6 +32,8 @@
         <item name="boxStrokeColor">@color/darkBrown</item>
         <item name="boxBackgroundColor">@color/brown</item>
         <item name="android:textColorHint">@color/lightGrey</item>
+        <item name="hintTextColor">@color/lightGrey</item>
+
         <item name="startIconTint">@color/lightGrey</item>
     </style>
 </resources>

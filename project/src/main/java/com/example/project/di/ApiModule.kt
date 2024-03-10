@@ -21,25 +21,25 @@ class ApiModule {
 
     @Provides
     @Singleton
-    private fun baseUrl() = Utils.BASE_URL
+     fun baseUrl() = Utils.BASE_URL
 
     @Provides
     @Singleton
-    private fun gsonConverter(): Gson = GsonBuilder().setLenient().create()
+     fun gsonConverter(): Gson = GsonBuilder().setLenient().create()
 
     @Provides
     @Singleton
-    private fun clientTime() = Utils.CLIENT_TIME
+     fun clientTime() = Utils.CLIENT_TIME
 
     @Provides
     @Singleton
-    private fun interceptor() = HttpLoggingInterceptor().apply {
+     fun interceptor() = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
     @Provides
     @Singleton
-    private fun clientHttp(interceptor: HttpLoggingInterceptor, clientTime: Long) =
+     fun clientHttp(interceptor: HttpLoggingInterceptor, clientTime: Long) =
         OkHttpClient.Builder()
             .addInterceptor(interceptor)
             .writeTimeout(clientTime, TimeUnit.SECONDS)

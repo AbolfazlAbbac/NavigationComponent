@@ -35,7 +35,7 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //Create a delay
         lifecycle.coroutineScope.launch {
-            delay(3500)
+            delay(2000)
 
             //Read DataStore(Token)
             dataStoreUsers.readDataStore().collect {

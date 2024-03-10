@@ -18,10 +18,11 @@
         <action
             android:id="@+id/splashToRegister"
             app:destination="@id/registerFragment" />
-        <action
-            android:id="@+id/splashToHome"
-            app:destination="@id/homeFragment" />
+
     </fragment>
+    <action
+        android:id="@+id/splashToHome"
+        app:destination="@id/homeFragment" />
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.project.ui.register.RegisterFragment"

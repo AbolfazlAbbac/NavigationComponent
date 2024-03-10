@@ -15,15 +15,15 @@ class RegisterViewModel @Inject constructor(private val registerRepository: Regi
     ViewModel() {
 
     val registerUser = MutableLiveData<ResponseRegister>()
-    private val progressBar = MutableLiveData<Boolean>()
+    val loading = MutableLiveData<Boolean>()
 
     fun registerUser(bodyRegister: BodyRegister) = viewModelScope.launch {
-        progressBar.postValue(true)
+        loading.postValue(true)
 
         val response = registerRepository.registerUser(bodyRegister)
         if (response.isSuccessful) {
             registerUser.postValue(response.body())
         }
-        progressBar.postValue(false)
+        loading.postValue(false)
     }
 }

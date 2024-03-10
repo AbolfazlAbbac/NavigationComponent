@@ -34,7 +34,8 @@
             style="@style/TextViewLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:inputType="textPersonName"
+            android:maxLines="1"
             android:paddingStart="@dimen/_32mdp"
             android:paddingEnd="@dimen/_18mdp"
             android:textSize="@dimen/_14font_mdp" />
@@ -57,7 +58,8 @@
             style="@style/TextViewLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
             android:paddingStart="@dimen/_32mdp"
             android:paddingEnd="@dimen/_18mdp"
             android:textSize="@dimen/_14font_mdp" />
@@ -71,6 +73,9 @@
         android:layout_marginHorizontal="@dimen/_20mdp"
         android:layout_marginTop="@dimen/_16mdp"
         android:hint="@string/password"
+        app:helperText="@string/helperTextPassword"
+        app:helperTextTextAppearance="@style/TextViewLight"
+        app:helperTextTextColor="@color/lightGrey"
         app:layout_constraintTop_toBottomOf="@+id/emailInput"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/lightGrey"
@@ -81,14 +86,27 @@
             style="@style/TextViewLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:inputType="textPassword"
+            android:maxLines="1"
             android:paddingStart="@dimen/_32mdp"
             android:paddingEnd="@dimen/_18mdp"
             android:textSize="@dimen/_14font_mdp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50mdp"
+        android:layout_marginHorizontal="@dimen/_20mdp"
+        android:layout_marginTop="@dimen/_20mdp"
+        android:backgroundTint="@color/darkBrown"
+        android:text="@string/submit"
+        android:textSize="@dimen/_16mdp"
+        android:imeOptions="actionSend"
+        app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
 
     <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingRegisterSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -102,15 +120,6 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loading_json" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/submitBtn"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_50mdp"
-        android:layout_marginHorizontal="@dimen/_20mdp"
-        android:layout_marginTop="@dimen/_32mdp"
-        android:backgroundTint="@color/darkBrown"
-        android:text="@string/submit"
-        android:textSize="@dimen/_16mdp"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
