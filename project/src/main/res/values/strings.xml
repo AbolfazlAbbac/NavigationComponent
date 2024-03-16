@@ -12,4 +12,5 @@
     <string name="email">Email</string>
 
     <string name="helperTextPassword">Your Password must be contains <b>Capital letters,lower case and numbers</b></string>
+    <string name="genres">Genres</string>
 </resources>

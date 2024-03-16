@@ -95,6 +95,8 @@ dependencies {
     //Lottie
     implementation ("com.airbnb.android:lottie:5.2.0")
 
+    //Coil
+    implementation("io.coil-kt:coil:2.6.0")
 }
 kapt {
     correctErrorTypes = true

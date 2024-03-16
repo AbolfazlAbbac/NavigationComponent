@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/coverImg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300mdp"
+        android:contentDescription="TODO"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300mdp"
+        android:background="@drawable/gradient_black"
+        app:layout_constraintBottom_toBottomOf="@+id/coverImg"
+        app:layout_constraintEnd_toEndOf="@+id/coverImg"
+        app:layout_constraintStart_toStartOf="@+id/coverImg"
+        app:layout_constraintTop_toTopOf="@id/coverImg" />
+
+    <TextView
+        android:id="@+id/moviesNameTv"
+        style="@style/TextViewLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@+id/infoMoviesTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="This is name of Movie" />
+
+    <TextView
+        android:id="@+id/infoMoviesTv"
+        style="@style/TextViewLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_26mdp"
+        android:drawablePadding="@dimen/_4mdp"
+        android:gravity="center"
+        app:drawableStartCompat="@drawable/star_rate_fill0_wght400_grad0_opsz24"
+        app:drawableTint="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/moviesNameTv"
+        app:layout_constraintStart_toStartOf="@id/moviesNameTv"
+        tools:text="Rate | Genre | More" />
+</androidx.constraintlayout.widget.ConstraintLayout>

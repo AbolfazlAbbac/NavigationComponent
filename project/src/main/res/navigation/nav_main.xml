@@ -14,10 +14,11 @@
         android:id="@+id/splashFragment"
         android:name="com.example.project.ui.splash.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/splashToRegister"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            />
 
     </fragment>
     <action

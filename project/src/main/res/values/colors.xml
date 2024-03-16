@@ -11,5 +11,6 @@
     <color name="darkBlack">#212121</color>
     <color name="lightBrown">#D7CCC8</color>
     <color name="lightGrey">#BDBDBD</color>
+    <color name="yellow">#FFEB3B</color>
 
 </resources>
