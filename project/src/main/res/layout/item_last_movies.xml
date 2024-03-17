@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_10mdp"
+    android:layout_marginVertical="@dimen/_4mdp"
+    android:backgroundTint="@color/darkBlack"
+    app:cardCornerRadius="@dimen/_8mdp"
+    app:cardElevation="@dimen/_2mdp"
+    app:cardMaxElevation="@dimen/_4mdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="@dimen/_4mdp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/coverImgLastItems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8mdp"
+            android:background="@color/darkBlack"
+            app:cardCornerRadius="@dimen/_8mdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/coverImgLastItemsIv"
+                android:layout_width="@dimen/_100mdp"
+                android:layout_height="@dimen/_100mdp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/nameMoviesLastItemsTv"
+            style="@style/TextViewLight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12mdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/coverImgLastItems"
+            app:layout_constraintTop_toTopOf="@id/coverImgLastItems"
+            tools:text="Hi this is a Test for Name" />
+
+        <TextView
+            android:id="@+id/rateMovie"
+            style="@style/TextViewLight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12mdp"
+            android:layout_marginTop="@dimen/_8mdp"
+            android:drawablePadding="@dimen/_4mdp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            app:drawableStartCompat="@drawable/star_rate_fill0_wght400_grad0_opsz24"
+            app:drawableTint="@color/yellow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/coverImgLastItems"
+
+            app:layout_constraintTop_toBottomOf="@id/nameMoviesLastItemsTv"
+            tools:text="Hi this is a Test for Name" />
+
+        <TextView
+            android:id="@+id/countryMovie"
+            style="@style/TextViewLight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12mdp"
+            android:layout_marginTop="@dimen/_8mdp"
+            android:drawablePadding="@dimen/_4mdp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            app:drawableStartCompat="@drawable/world_icon"
+            app:drawableTint="@color/gery"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toEndOf="@id/coverImgLastItems"
+            app:layout_constraintTop_toBottomOf="@id/rateMovie"
+            tools:text="Hi this is a Test for Name" />
+
+        <TextView
+            android:id="@+id/yearMovie"
+            style="@style/TextViewLight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12mdp"
+            android:layout_marginTop="@dimen/_8mdp"
+            android:drawablePadding="@dimen/_4mdp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+
+            app:drawableStartCompat="@drawable/calendar"
+            app:drawableTint="@color/gery"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/coverImgLastItems"
+            app:layout_constraintTop_toBottomOf="@id/countryMovie"
+            tools:text="Hi this is a Test for Name" />
+
+        <TextView
+            android:id="@+id/getMoreInfo"
+            style="@style/TextViewLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12mdp"
+            android:layout_marginTop="@dimen/_8mdp"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:text="@string/get_more_information"
+            android:textColor="@color/brown"
+            app:drawableEndCompat="@drawable/chevron_right"
+            app:drawableTint="@color/gery"
+            app:layout_constraintStart_toEndOf="@id/coverImgLastItems"
+            app:layout_constraintTop_toBottomOf="@id/yearMovie" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

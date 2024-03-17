@@ -42,9 +42,9 @@ class ApiModule {
      fun clientHttp(interceptor: HttpLoggingInterceptor, clientTime: Long) =
         OkHttpClient.Builder()
             .addInterceptor(interceptor)
-            .writeTimeout(clientTime, TimeUnit.SECONDS)
-            .readTimeout(clientTime, TimeUnit.SECONDS)
-            .connectTimeout(clientTime, TimeUnit.SECONDS)
+            .writeTimeout(clientTime, TimeUnit.MINUTES)
+            .readTimeout(clientTime, TimeUnit.MINUTES)
+            .connectTimeout(clientTime, TimeUnit.MINUTES)
             .build()
 
 

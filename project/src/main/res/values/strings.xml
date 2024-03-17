@@ -13,4 +13,6 @@
 
     <string name="helperTextPassword">Your Password must be contains <b>Capital letters,lower case and numbers</b></string>
     <string name="genres">Genres</string>
+    <string name="get_more_information">Get More Information</string>
+    <string name="last_movies">Last Movies</string>
 </resources>

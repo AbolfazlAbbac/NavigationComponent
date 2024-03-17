@@ -1,6 +1,7 @@
 package com.example.project.ui.home
 
 import android.annotation.SuppressLint
+import android.content.pm.ModuleInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,33 +14,35 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import com.example.project.databinding.FragmentHomeBinding
 import com.example.project.ui.home.adapter.HomeGenresAdapter
 import com.example.project.ui.home.adapter.HomeTopMoviesAdapter
+import com.example.project.ui.home.adapter.MovieListAdapter
 import com.example.project.utils.initRecycler
+import com.example.project.utils.isShown
 import com.example.project.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
-
     private lateinit var binding: FragmentHomeBinding
-
     @Inject
     lateinit var topMoviesAdapter: HomeTopMoviesAdapter
-
     @Inject
     lateinit var genresAdapter: HomeGenresAdapter
-
+    @Inject
+    lateinit var lastMovieAdapter: MovieListAdapter
     private val viewModel: HomeViewModel by viewModels()
 
     private val pagerSnapHelper: PagerSnapHelper by lazy { PagerSnapHelper() }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+        }
         viewModel.topMovies(3)
         viewModel.allGenres()
-        requireActivity().onBackPressedDispatcher.addCallback(this) {
+        viewModel.getLastMovies()
 
-        }
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -65,13 +68,29 @@ class HomeFragment : Fragment() {
                 pagerSnapHelper.attachToRecyclerView(topMoviesItemsRv)
                 topMoviesIndicator.attachToRecyclerView(topMoviesItemsRv, pagerSnapHelper)
             }
-
             viewModel.allGenres.observe(viewLifecycleOwner) { response ->
                 genresAdapter.differ.submitList(response)
                 genresItemsRv.initRecycler(
                     LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false),
                     genresAdapter
                 )
+            }
+            viewModel.lastMovies.observe(viewLifecycleOwner) {
+                lastMovieAdapter.setData(it.data)
+
+                lastMoviesItemsRv.initRecycler(
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false),
+                    lastMovieAdapter
+                )
+            }
+            viewModel.loading.observe(viewLifecycleOwner) {
+                if (it) {
+                    nestedScrollViewHome.isShown(false)
+                    loadingHome.isShown(true)
+                } else {
+                    nestedScrollViewHome.isShown(true)
+                    loadingHome.isShown(false)
+                }
             }
         }
     }

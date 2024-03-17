@@ -7,8 +7,10 @@
     tools:context=".ui.home.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollViewHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +48,7 @@
 
             <!--Genre-->
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/genresLay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8mdp"
@@ -68,7 +71,7 @@
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_2mdp"
                     android:layout_marginStart="@dimen/_8mdp"
-                    android:background="@color/white"
+                    android:background="@color/darkBrown"
                     app:layout_constraintBottom_toBottomOf="@id/genresTextTv"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/genresTextTv"
@@ -84,8 +87,60 @@
                     app:layout_constraintTop_toBottomOf="@+id/genresTextTv" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                app:layout_constraintTop_toBottomOf="@id/genresLay">
+
+                <TextView
+                    android:id="@+id/lastMoviesTextTv"
+                    style="@style/TextViewLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10mdp"
+                    android:gravity="center"
+
+                    android:text="@string/last_movies"
+                    android:textSize="@dimen/_14mdp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_2mdp"
+                    android:layout_marginStart="@dimen/_8mdp"
+                    android:background="@color/darkBrown"
+                    app:layout_constraintBottom_toBottomOf="@id/lastMoviesTextTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/lastMoviesTextTv"
+                    app:layout_constraintTop_toTopOf="@id/lastMoviesTextTv" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lastMoviesItemsRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4mdp"
+                    android:clipToPadding="false"
+                    app:layout_constraintTop_toBottomOf="@+id/lastMoviesTextTv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingHome"
+        android:layout_width="@dimen/_100mdp"
+        android:layout_height="@dimen/_100mdp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_cricle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
