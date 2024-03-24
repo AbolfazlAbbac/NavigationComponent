@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             bottomNavigationView.setupWithNavController(navController)
 
             navController.addOnDestinationChangedListener { _, destination, _ ->
-                if (destination.id == R.id.splashFragment || destination.id == R.id.registerFragment) {
+                if (destination.id == R.id.splashFragment || destination.id == R.id.registerFragment || destination.id == R.id.detailFragment) {
                     bottomNavigationView.visibility = View.GONE
                 } else {
                     bottomNavigationView.visibility = View.VISIBLE

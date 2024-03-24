@@ -38,8 +38,20 @@ class HomeTopMoviesAdapter @Inject constructor() : Adapter<HomeTopMoviesAdapter.
                 }
                 moviesNameTv.text = data.title
                 infoMoviesTv.text = "${data.imdbRating} | ${data.country} | ${data.year}"
+
+                binding.root.setOnClickListener {
+                    onItemListener?.let {
+                        it(data)
+                    }
+                }
             }
         }
+    }
+
+    private var onItemListener: ((Data) -> Unit)? = null
+
+    fun onItemListener(listener: (Data) -> Unit) {
+        onItemListener = listener
     }
 
 

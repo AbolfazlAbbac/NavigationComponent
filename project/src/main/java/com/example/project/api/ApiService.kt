@@ -1,6 +1,7 @@
 package com.example.project.api
 
 import com.example.project.models.BodyRegister
+import com.example.project.models.ResponseDetail
 import com.example.project.models.ResponseGenres
 import com.example.project.models.ResponseMovieList
 import com.example.project.models.ResponseRegister
@@ -27,4 +28,7 @@ interface ApiService {
 
     @GET("movies")
     suspend fun searchMovies(@Query("q") movieName: String): Response<ResponseMovieList>
+
+    @GET("movies/{movie_id}")
+    suspend fun getMovieDetail(@Path("movie_id") id: Int): Response<ResponseDetail>
 }

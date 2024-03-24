@@ -1,14 +1,291 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollViewDetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:fillViewport="true">
+        <!--All Layout-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-</FrameLayout>
+            <!--Image Layout-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imageLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_400mdp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/posterIVBig"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.1"
+                    android:scaleType="centerCrop"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/posterIVNormal"
+                    android:layout_width="@dimen/_200mdp"
+                    android:layout_height="@dimen/_300mdp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/RoundedImage"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200mdp"
+                    android:background="@drawable/gradient_black"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10mdp"
+                android:layout_marginTop="@dimen/_10mdp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/backBtnDetail"
+                    android:layout_width="@dimen/_32mdp"
+                    android:layout_height="@dimen/_32mdp"
+                    android:rotation="180"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/chevron_right"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+
+                <ImageView
+                    android:id="@+id/favBtnDetail"
+                    android:layout_width="@dimen/_32mdp"
+                    android:layout_height="@dimen/_32mdp"
+                    android:padding="@dimen/_4mdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bookmark_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Info Layout-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/infoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/imageLayout">
+
+                <TextView
+                    android:id="@+id/nameTvDetail"
+                    style="@style/TextViewLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_23mdp"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:textSize="@dimen/_14mdp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="This is a test for name of the film" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10mdp"
+                    app:layout_constraintTop_toBottomOf="@id/nameTvDetail">
+
+
+                    <TextView
+                        android:id="@+id/rateTvDetail"
+                        style="@style/TextViewLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/_4mdp"
+                        android:gravity="center"
+                        android:textSize="@dimen/_10mdp"
+                        app:drawableStartCompat="@drawable/star_rate_fill0_wght400_grad0_opsz24"
+                        app:drawableTint="@color/yellow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/countryTvDetail"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="9.10" />
+
+                    <TextView
+                        android:id="@+id/countryTvDetail"
+                        style="@style/TextViewLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/_4mdp"
+                        android:gravity="center"
+                        android:textSize="@dimen/_10mdp"
+                        app:drawableStartCompat="@drawable/world_icon"
+                        app:drawableTint="@color/white"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/yearTvDetail"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/rateTvDetail"
+                        tools:text="English | Us |America " />
+
+                    <TextView
+                        android:id="@+id/yearTvDetail"
+                        style="@style/TextViewLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/_4mdp"
+                        android:gravity="center"
+                        android:textSize="@dimen/_10mdp"
+                        app:drawableStartCompat="@drawable/calendar"
+                        app:drawableTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/countryTvDetail"
+                        tools:text="1990" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Summary-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/summaryLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/infoLayout">
+
+                <TextView
+                    android:id="@+id/summeryTvDetail"
+                    style="@style/TextViewLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12mdp"
+                    android:drawablePadding="@dimen/_4mdp"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/summary"
+                    android:textSize="@dimen/_14font_mdp"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/summarize_icon"
+                    app:drawableTint="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/mainSummeryTvDetail"
+                    style="@style/TextViewLight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12mdp"
+                    android:drawablePadding="@dimen/_4mdp"
+                    android:gravity="start|center_vertical"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="@dimen/_6mdp"
+                    android:lineSpacingMultiplier="0.8"
+                    android:text="@string/lorem"
+
+                    android:textSize="@dimen/_14font_mdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/summeryTvDetail"
+                    tools:targetApi="o" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/summaryLay">
+
+                <TextView
+                    android:id="@+id/actorsTvDetail"
+                    style="@style/TextViewLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12mdp"
+                    android:drawablePadding="@dimen/_4mdp"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/actors"
+                    android:textSize="@dimen/_14font_mdp"
+
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/summarize_icon"
+                    app:drawableTint="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/nameActorsTvDetail"
+                    style="@style/TextViewLight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12mdp"
+                    android:drawablePadding="@dimen/_4mdp"
+                    android:gravity="start|center_vertical"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="@dimen/_6mdp"
+                    android:lineSpacingMultiplier="0.8"
+                    android:text="@string/lorem"
+                    android:textSize="@dimen/_14font_mdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actorsTvDetail"
+                    tools:targetApi="o" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/actorsPhotoDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12mdp"
+                    android:layout_marginTop="@dimen/_8mdp"
+                    android:layout_marginBottom="@dimen/_4mdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/nameActorsTvDetail" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingDetail"
+        android:layout_width="@dimen/_100mdp"
+        android:layout_height="@dimen/_100mdp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_cricle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

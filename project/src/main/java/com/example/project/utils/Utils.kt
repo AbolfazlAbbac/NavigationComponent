@@ -6,4 +6,9 @@ object Utils {
 
     const val BASE_URL = "https://moviesapi.ir/api/v1/"
     const val CLIENT_TIME = 5L
+
+    const val FAB_TABLE = "fab_table"
+    const val FAB_DATABASE = "fab_database"
+
+
 }

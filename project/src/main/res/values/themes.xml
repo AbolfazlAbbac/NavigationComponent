@@ -27,7 +27,6 @@
     </style>
 
 
-
     <!--TextInputLayout-->
     <style name="TextInputLayoutCustom" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="boxStrokeColor">@color/darkBrown</item>
@@ -36,5 +35,12 @@
         <item name="hintTextColor">@color/lightGrey</item>
 
         <item name="startIconTint">@color/lightGrey</item>
+    </style>
+
+    <!--Rounded Image-->
+    <style name="RoundedImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_10mdp</item>
+
     </style>
 </resources>

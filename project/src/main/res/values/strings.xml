@@ -10,10 +10,14 @@
     <string name="submit">Submit</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
-
     <string name="helperTextPassword">Your Password must be contains <b>Capital letters,lower case and numbers</b></string>
     <string name="genres">Genres</string>
     <string name="get_more_information">Get More Information</string>
     <string name="last_movies">Last Movies</string>
     <string name="search_et">Enter name of the movie you want</string>
+    <string name="no_movie">There is no Movie Here</string>
+    <string name="summary">Summary</string>
+    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry/s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="actors">Actors</string>
+
 </resources>

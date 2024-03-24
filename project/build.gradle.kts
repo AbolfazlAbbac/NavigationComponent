@@ -66,6 +66,8 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     annotationProcessor("androidx.room:room-compiler:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+
 
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -97,6 +99,10 @@ dependencies {
 
     //Coil
     implementation("io.coil-kt:coil:2.6.0")
+
+    //Zoom Images
+    implementation("com.github.MikeOrtiz:TouchImageView:1.4.1")
+
 }
 kapt {
     correctErrorTypes = true

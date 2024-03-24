@@ -1,5 +1,6 @@
 package com.example.project.ui.home.adapter
 
+import android.provider.ContactsContract.Data
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -23,6 +24,8 @@ class MovieListAdapter @Inject constructor() : Adapter<ViewHolderMovieList>() {
 
     override fun onBindViewHolder(holder: ViewHolderMovieList, position: Int) {
         holder.bind(movieList[position])
+        holder.setIsRecyclable(false)
+
     }
 
     override fun getItemCount(): Int {
@@ -41,8 +44,19 @@ class MovieListAdapter @Inject constructor() : Adapter<ViewHolderMovieList>() {
                     crossfade(true)
                     crossfade(800)
                 }
+                binding.root.setOnClickListener {
+                    onItemClick?.let {
+                        it(item)
+                    }
+                }
             }
         }
+    }
+
+    private var onItemClick: ((ResponseMovieList.Data) -> Unit)? = null
+
+    fun onItemClickListener(listener: (ResponseMovieList.Data) -> Unit) {
+        onItemClick = listener
     }
 
     fun setData(data: List<ResponseMovieList.Data>) {

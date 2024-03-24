@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.example.project.databinding.FragmentHomeBinding
@@ -19,15 +20,19 @@ import com.example.project.utils.initRecycler
 import com.example.project.utils.isShown
 import com.example.project.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.processNextEventInCurrentThread
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+
     @Inject
     lateinit var topMoviesAdapter: HomeTopMoviesAdapter
+
     @Inject
     lateinit var genresAdapter: HomeGenresAdapter
+
     @Inject
     lateinit var lastMovieAdapter: MovieListAdapter
     private val viewModel: HomeViewModel by viewModels()
@@ -57,6 +62,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
+            //header Movies
             viewModel.topMoviesList.observe(viewLifecycleOwner) {
                 topMoviesAdapter.differ.submitList(it.data)
                 //RecyclerView
@@ -68,6 +74,8 @@ class HomeFragment : Fragment() {
                 pagerSnapHelper.attachToRecyclerView(topMoviesItemsRv)
                 topMoviesIndicator.attachToRecyclerView(topMoviesItemsRv, pagerSnapHelper)
             }
+
+            //Genres
             viewModel.allGenres.observe(viewLifecycleOwner) { response ->
                 genresAdapter.differ.submitList(response)
                 genresItemsRv.initRecycler(
@@ -75,6 +83,8 @@ class HomeFragment : Fragment() {
                     genresAdapter
                 )
             }
+
+            //movies list
             viewModel.lastMovies.observe(viewLifecycleOwner) {
                 lastMovieAdapter.setData(it.data)
 
@@ -83,6 +93,7 @@ class HomeFragment : Fragment() {
                     lastMovieAdapter
                 )
             }
+            //loading
             viewModel.loading.observe(viewLifecycleOwner) {
                 if (it) {
                     nestedScrollViewHome.isShown(false)
@@ -92,7 +103,22 @@ class HomeFragment : Fragment() {
                     loadingHome.isShown(false)
                 }
             }
+
+            //click movies list(go to detail)
+            lastMovieAdapter.onItemClickListener {
+                goToDetail(it.id)
+            }
+
+            //click header list (go to detail)
+            topMoviesAdapter.onItemListener {
+                goToDetail(it.id)
+            }
         }
+    }
+
+    private fun goToDetail(id: Int) {
+        val direction = HomeFragmentDirections.toDetailFragment(id)
+        findNavController().navigate(direction)
     }
 
 

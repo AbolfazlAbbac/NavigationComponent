@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.project.databinding.FragmentSearchBinding
+import com.example.project.ui.home.adapter.HomeTopMoviesAdapter
 import com.example.project.ui.home.adapter.MovieListAdapter
 import com.example.project.utils.initRecycler
 import com.example.project.utils.isShown
@@ -44,13 +46,18 @@ class SearchFragment : Fragment() {
                     viewModel.searchMovies(name)
                 }
             }
+
+            //Search data
             viewModel.searchedMovies.observe(viewLifecycleOwner) { response ->
                 moviesAdapter.setData(response.data)
                 searchRv.initRecycler(
                     LinearLayoutManager(
-                        requireContext()), moviesAdapter
+                        requireContext()
+                    ), moviesAdapter
                 )
             }
+
+            //Loading
             viewModel.loading.observe(viewLifecycleOwner) {
                 if (it) {
                     loadingSearch.isShown(true)
@@ -58,6 +65,8 @@ class SearchFragment : Fragment() {
                     loadingSearch.isShown(false)
                 }
             }
+
+            //Empty View
             viewModel.emptyList.observe(viewLifecycleOwner) {
                 if (it) {
                     lottieEmptySearch.isShown(true)
@@ -68,6 +77,16 @@ class SearchFragment : Fragment() {
                 }
             }
 
+
+            moviesAdapter.onItemClickListener {
+                goToDetail(it.id)
+            }
+
         }
+    }
+
+    private fun goToDetail(id: Int) {
+        val direction = SearchFragmentDirections.toDetailFragment(id)
+        findNavController().navigate(direction)
     }
 }
