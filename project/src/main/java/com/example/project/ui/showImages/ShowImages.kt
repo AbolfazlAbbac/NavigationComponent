@@ -7,15 +7,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.SnapHelper
 import com.example.project.R
 import com.example.project.databinding.FragmentShowImagesBinding
+import com.example.project.utils.initRecycler
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class ShowImages : Fragment() {
 
     lateinit var binding: FragmentShowImagesBinding
 
     private val args: ShowImagesArgs by navArgs()
     private var imageList = emptyList<String>()
+
+    @Inject
+    lateinit var adapter: ShowImagesAdapter
+
+    val snapHelper = PagerSnapHelper()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         imageList = args.imagesUrl.toList()
@@ -36,6 +48,19 @@ class ShowImages : Fragment() {
         binding.apply {
             if (imageList.isNotEmpty()) {
                 Log.e("Image List", "onViewCreated: $imageList")
+                //set Data for rv
+                adapter.setData(imageList)
+
+                showImagesRv.initRecycler(
+                    LinearLayoutManager(
+                        requireContext(),
+                        LinearLayoutManager.HORIZONTAL,
+                        false
+                    ), adapter
+                )
+
+                snapHelper.attachToRecyclerView(showImagesRv)
+                indicatorShowImages.attachToRecyclerView(showImagesRv, snapHelper)
 
             }
         }
