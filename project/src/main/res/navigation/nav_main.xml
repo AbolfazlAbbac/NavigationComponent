@@ -53,5 +53,19 @@
         <argument
             android:name="itemId"
             app:argType="integer" />
+          </fragment>
+    <fragment
+        android:id="@+id/showImages"
+        android:name="com.example.project.ui.showImages.ShowImages"
+        android:label="fragment_show_images"
+        tools:layout="@layout/fragment_show_images" >
+        <argument
+            android:name="ImagesUrl"
+            app:argType="string[]" />
     </fragment>
+
+    <action
+        android:id="@+id/action_detailFragment_to_showImages"
+        app:destination="@id/showImages" />
+
 </navigation>

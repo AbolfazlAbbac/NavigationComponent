@@ -108,6 +108,14 @@ class DetailFragment : Fragment() {
                         viewModel.favoriteMovie(itemId, fabEntity)
                     }
                 }
+
+
+                //show Images Bigger
+                adapter.imageItemListener {
+                    val direction =
+                        DetailFragmentDirections.actionDetailFragmentToShowImages(response.images.toTypedArray())
+                    findNavController().navigate(direction)
+                }
             }
 
             lifecycleScope.launch {
@@ -147,6 +155,7 @@ class DetailFragment : Fragment() {
             backBtnDetail.setOnClickListener {
                 findNavController().navigateUp()
             }
+
         }
     }
 
