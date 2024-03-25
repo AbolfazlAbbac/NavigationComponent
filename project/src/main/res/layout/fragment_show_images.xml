@@ -6,23 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.showImages.ShowImages">
 
-    <com.ortiz.touchview.TouchImageView
-        android:id="@+id/imagesIv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/showImagesRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <me.relex.circleindicator.CircleIndicator2
         android:id="@+id/indicatorShowImages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imagesIv"
-        app:layout_constraintEnd_toEndOf="@+id/imagesIv"
+        android:layout_marginBottom="@dimen/_120mdp"
+        app:layout_constraintBottom_toBottomOf="@+id/showImagesRv"
+        app:layout_constraintEnd_toEndOf="@+id/showImagesRv"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
